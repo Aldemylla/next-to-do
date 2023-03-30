@@ -47,10 +47,6 @@ export default function TasksContextProvider({ children }: { children: ReactNode
     return tasks.filter((task) => task.completed).length;
   }
 
-  useEffect(() => {
-    console.log(tasks);
-  }, [tasks]);
-
   return (
     <TasksContext.Provider
       value={{ tasks, addTask, deleteTask, handleCompleteTask, getCompletedTasks }}>
