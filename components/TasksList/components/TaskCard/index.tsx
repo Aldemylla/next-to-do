@@ -8,7 +8,7 @@ interface TaskCardProps {
   index: number;
 }
 
-export default function TaskCard({ task = "", isChecked = false, index = 0 }: TaskCardProps) {
+export default function TaskCard({ task, isChecked, index }: TaskCardProps) {
   const { handleCompleteTask, deleteTask } = useContext(TasksContext);
   const ID = `task-${index}`;
 
@@ -38,14 +38,16 @@ export default function TaskCard({ task = "", isChecked = false, index = 0 }: Ta
       />
       <label
         htmlFor={ID}
+        data-testid={ID}
         className={`-translate-y-[5px] w-full text-white text-justify break-all ${
           isChecked ? "text-neutral-400 line-through" : ""
         }`}>
         {task}
       </label>
-      <button onClick={handleDeleteTask} className='z-10'>
+      <button data-testid={`${ID}-delete-button`} onClick={handleDeleteTask} className='z-10'>
         <DeleteForeverOutlined className='text-neutral-400' />
       </button>
     </li>
   );
 }
+

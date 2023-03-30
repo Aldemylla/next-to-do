@@ -13,6 +13,7 @@ export type TasksContextType = {
   handleCompleteTask: (taskIndex: number, completed: boolean) => void;
 };
 
+/* istanbul ignore next */
 const TASKS_CONTEXT_DEFAULT = {
   tasks: [],
   addTask: () => {},
@@ -54,3 +55,4 @@ export default function TasksContextProvider({ children }: { children: ReactNode
     </TasksContext.Provider>
   );
 }
+
